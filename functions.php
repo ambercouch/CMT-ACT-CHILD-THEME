@@ -1,14 +1,32 @@
 <?php
 
 
-add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
-
-
-function my_theme_enqueue_styles() {
-
+add_action( 'wp_enqueue_scripts', 'ac_enqueue_styles' );
+function ac_enqueue_styles() {
+    //enqeue the parent theme files
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
-
 }
+
+add_action( 'wp_print_styles', 'ac_dequeue_styles' );
+function ac_dequeue_styles() {
+    //deqeue the current theme files
+    wp_deregister_style('twentythirteen-style');
+    wp_dequeue_style( 'twentythirteen-style' );
+    wp_deregister_style('twentythirteen-ie');
+    wp_dequeue_style( 'twentythirteen-ie' );
+}
+
+//function ac_inspect_scripts() {
+//    global $wp_styles;
+//    echo '<script id="ac_inspect_scripts">';
+//    foreach( $wp_styles->queue as $handle ) :
+//        echo 'console.log("' . $handle . '");';
+//    endforeach;
+//    echo '</script>';
+//}
+//add_action( 'wp_print_scripts', 'ac_inspect_scripts' );
+
+
 
 //Love, love, love, love all you functions
 require_once get_theme_file_path() . '/lib/functions--ac-sidebars.php';

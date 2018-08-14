@@ -18,6 +18,18 @@ if ( ! class_exists( 'Timber' ) ) {
     return;
 }
 
+add_action( 'wp_print_styles', 'ac_enqeue_styles' );
+function ac_enqeue_styles() {
+    //deqeue the current theme files
+    wp_register_style('ac-style', get_stylesheet_directory() . '/style.css');
+    wp_enqueue_style( 'ac-style' );
+    wp_deregister_style('parent-style');
+    wp_dequeue_style( 'parent-style' );
+}
+
+
+require_once get_theme_file_path() . '/lib/wp-timber/timber--nav-menu.php';
+
 $context = Timber::get_context();
 $context['posts'] = Timber::get_posts();
 $context['foo'] = 'bar';
