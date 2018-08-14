@@ -39,3 +39,5 @@ if ( is_home() ) {
     array_unshift( $templates, 'home.twig' );
 }
 Timber::render( $templates, $context );
+
+require_once get_theme_file_path() . '/lib/wp-timber/timber--nav-menu.php';
