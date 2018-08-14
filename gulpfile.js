@@ -1,5 +1,5 @@
-var siteLocalUrl = 'nowasteliving.local';
-var defaultBrowser = ['C:\\Program Files (x86)\\Firefox Developer Edition\\firefox.exe', 'Chrome'];
+var siteLocalUrl = 'acwordpress.cmt';
+var defaultBrowser =  ['Chrome'];
 
 var gulp = require('gulp');
 var gutil = require('gulp-util');
@@ -88,7 +88,7 @@ gulp.task('scripts', function (cb) {
 
 //TASK: sass - Concat and uglify all the vendor and custom javascript
 gulp.task('sass', function (cb) {
-
+    gutil.log('bleen it to the max');
     var sassStream,
         cssStream;
 
@@ -111,7 +111,6 @@ gulp.task('serve', ['sass','scripts','svgstore'], function () {
 
     browserSync.init({
         proxy: siteLocalUrl,
-        browser: defaultBrowser
     });
 
     gulp.watch("assets/scss/**/*.scss", ['sass']);
