@@ -8,8 +8,7 @@ BEM BLOCK .c-masthead
   padding: $act-unit;
   padding-bottom: $act-unit;
   padding-top: 0;
-
-  display: flex;
+  display: flex ;
   flex-wrap: wrap;
   justify-content: space-between;
   &:after{
