@@ -12,7 +12,20 @@
 
   {% for post in posts %}
     {% set postFormat = fn('get_post_format', post)? '-'~fn('get_post_format', post) : '' %}
-    {% include 'content/content'~postFormat~'.twig' %}<br>
+    {% include 'content/content'~postFormat~'.twig' %}
   {% endfor %}
 
+{% endblock %}
+
+
+{#{% block belowContent %}#}
+  {#<!-- removed comments in home.twig -->#}
+{#{% endblock %}#}
+{% set hasSideBar = true %}
+{% block sidebar %}
+
+  <!-- removed comments in home.twig -->
+  <div class="c-main__sidebar">
+    This is the sidebar
+  </div>
 {% endblock %}
