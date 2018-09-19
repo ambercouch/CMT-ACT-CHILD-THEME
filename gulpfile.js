@@ -1,4 +1,4 @@
-var siteLocalUrl = 'acwordpress.cmt';
+var siteLocalUrl = 'chemicaltranslator2018.local';
 var defaultBrowser =  ['Chrome'];
 
 var gulp = require('gulp');
