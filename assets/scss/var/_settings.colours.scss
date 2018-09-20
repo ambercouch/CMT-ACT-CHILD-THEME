@@ -15,15 +15,24 @@ $act-grey-light : #eee;
 $act-grey-dark : #666;
 
 $cmt-grey : #f2f2f2;
+$cmt-grey-dark: rgb(91, 104, 125);
+$cmt-green: #01b1aa;
+$cmt-green-light: #d0f0ef;
+$cmt-blue: #18407e;
+
 
 $brand-col-1 : $cmt-grey;
 
-$brand-col-2 : $act-grey-light;
-$brand-col-3 : $act-grey-dark;
-$brand-col-4 : $act-grey;
-$brand-col-5 : $act-grey-light;
+$brand-col-2 : $cmt-grey-dark;
+$brand-col-3 : $cmt-green;
+$brand-col-4 : $cmt-blue;
+$brand-col-5 : $cmt-green-light;
 $brand-col-6 : $act-grey-dark;
 $brand-col-7 : $act-grey;
 $brand-col-8 : $act-grey-light;
 $brand-col-9 : $act-grey-dark;
 
+$col-text : $brand-col-2;
+$col-heading : $brand-col-2;
+$col-link : $brand-col-3;
+$col-accent : $brand-col-3;

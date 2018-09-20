@@ -12,8 +12,13 @@
 
 .c-nav-menu-- {
   &primary {
-   @include act-font-size($inuit-font-size-h6, 1.3);
-
+    @include act-font-size($inuit-font-size-h6, 1.3);
+    text-transform: uppercase;
+    display: none;
+    @include mq($from : desktop){
+      display: block;
+    }
+    //justify-content: center;
   }
 }
 
@@ -28,18 +33,49 @@
  */
 
 .c-nav-menu__ {
- &list{
-   @extend .o-list-bare;
-   margin-bottom: 0;
-   justify-content: flex-end;
- }
+  &list{
+    @extend .o-list-bare;
+    margin-bottom: 0;
+    align-items: center;
+  }
+  &item{
+    position: relative;
+    padding-left:0;
+  }
   &link{
     text-decoration: none;
+    @include act-font-size($inuit-font-size-h5,1);
+    display: block;
   }
   &sub-menu{
-    display: none !important;
+    position: absolute;
+    left: -99999px;
+    display: none;
+    top: 100%;
+    margin-left: 0;
+    z-index: 999;
+    background: darken($brand-col-1, 5%);
+    padding: $act-unit-t;
+    .menu-item-has-children:hover &{
+      left: 0;
+      display: block;
+    }
   }
 
+  &list-sub-menu{
+    @extend .o-list-bare ;
+    margin: 0;
+  }
+  &item-sub-menu{
+    margin-bottom: $act-unit-s;
+    padding-left: 0 !important;
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+  &item-sub-link{
+    padding: $act-unit-t;
+  }
 }
 
 //BEM ELEMENT MODIFIER FALLBACK .c-nav-menu__list--
@@ -50,7 +86,16 @@
 
 .c-nav-menu__list--{
   &primary{
-  @extend .o-list-flex--center;
+    @extend .o-list-flex--center;
+    justify-content: center;
+  }
+  &top-nav{
+    @extend .o-list-flex--center;
+    justify-content: center;
+  }
+  &english-menu{
+    @extend .o-list-flex--center;
+    justify-content: center;
   }
 }
 
@@ -62,10 +107,21 @@
 
 .c-nav-menu__item--{
   &primary{
-    margin-right: $act-unit-t;
-    margin-left: $act-unit-t;
+    margin-right: $act-unit;
+    margin-left: $act-unit;
+  }
+  &english-menu{
+    border-right:solid 1px $brand-col-2;
+    margin: 0;
   }
 }
+
+//BEM ELEMENT MODIFIER FALLBACK .c-nav-menu__item--
+
+[class*=c-nav-menu__item-sub-menu--] {
+  @extend .c-nav-menu__item-sub-menu !optional;
+}
+
 
 //BEM ELEMENT MODIFIER FALLBACK .c-nav-menu__link--
 
@@ -76,10 +132,33 @@
 .c-nav-menu__link--{
   &primary{
     padding:$act-unit-t / 2;
+    padding-bottom:$act-unit-s ;
     display: block;
-    color: $brand-col-2;
+    color: white;
     &:hover{
-      color: $brand-col-2;
+      color: white;
+      border-bottom: solid 1px $col-accent;
+      padding-bottom: $act-unit-s - 1px;
+    }
+
+  }
+  &english-menu{
+    color: $brand-col-2;
+    padding: $act-unit-s $act-unit;
+    &:hover{
+      color: white;
+      background: $brand-col-3;
+    }
+    .current-menu-item &{
+      color: white;
+      background: $brand-col-3;
+    }
+  }
+  &top-nav{
+    @include act-font-size($inuit-font-size-small, 1);
+    color: white;
+    &:hover{
+      color: $brand-col-3;
     }
   }
   &mobile{
@@ -96,31 +175,75 @@
       background-color: darken($brand-col-3, 20%);
     }
   }
-}
-
-.c-nav-menu__link--{
   &mobile{
     margin-bottom: $act-unit-s;
   }
 }
 
-.is-inline-list{
-  .c-nav-menu__list{
-    display: flex;
-  }
-  .c-nav-menu__link{
-    padding: $act-unit-s $act-unit-s;
-    margin: 0 $act-unit-t;
-    line-height: 1;
+//BEM ELEMENT CONTEXT .c-nav-menu--primary
+
+.c-nav-menu--primary{
+  .mobile-nav-widgets &{
     display: block;
   }
 }
-
-.c-nav-menu__link--english-menu{
-  .site__masthead &{
-    color: black !important;
-    &:hover{
-      background-color: darken($brand-col-1, 5%);
-    }
+.c-nav-menu__list{
+  .mobile-nav-widgets &{
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+  }
+  .is-flex-menu &{
+    display: flex;
   }
 }
+.c-nav-menu__item{
+  .mobile-nav-widgets &{
+    margin-left:0;
+    margin-right: 0;
+    margin-bottom:$inuit-global-spacing-unit;
+  }
+}
+
+
+//BEM ELEMENT ATTRIBUTES .is- .has-
+.c-nav-menu__list{
+  .is-six-item-split &{
+    display: grid;
+    grid-template-columns: auto auto auto 1fr auto auto auto;
+
+    .c-nav-menu__item--primary:nth-child(4){
+      grid-column-start: 5;
+    }
+  }
+  .is-flex-centered &{
+    justify-content: center;
+  }
+  .is-flex-start &{
+    justify-content: flex-start;
+  }
+  .is-flex-end &{
+    justify-content: flex-end;
+  }
+}
+
+.c-nav-menu__item{
+  &.is-disc-icon{
+    margin: 0 $act-unit-t;
+  }
+  &:first-child{
+    margin-left: 0;
+  }
+  &:last-child{
+    margin-right: 0;
+  }
+}
+
+.c-nav-menu__link{
+  .sub-menu &{
+    @include act-font-size($inuit-font-size-h6, 1);
+    padding: $act-unit-t;
+    white-space: nowrap;
+  }
+}
+

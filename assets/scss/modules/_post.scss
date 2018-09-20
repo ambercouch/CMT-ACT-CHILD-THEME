@@ -24,6 +24,9 @@
     //padding-bottom: 0;
 
   }
+  &__heading{
+   // @include act-font-size($inuit-font-size-h1,1);
+  }
   &__post-meta{
     padding: $inuit-global-spacing-unit-small /2 0 ;
   }
@@ -37,10 +40,10 @@
     //align-self: flex-end;
     //flex-grow: 1;
     //position: relative;
-    @include inuit-font-size($inuit-small-print, 1);
+    @include inuit-font-size($inuit-font-size-small-print, 1);
   }
   &__comment-link{
-    @include inuit-font-size($inuit-small-print, 1);
+    @include inuit-font-size($inuit-font-size-small-print, 1);
     //position: absolute;
     //padding: $inuit-global-spacing-unit;
     //bottom: 0;
@@ -48,16 +51,18 @@
   }
   &__title{
     //border-bottom: solid 1px;
-    @include inuit-font-size($inuit-font-size-h4);
+    @include inuit-font-size($inuit-font-size-h2);
     margin-bottom: 0;
-    a{
-      text-decoration: none;;
-    }
+
+  }
+  &__title-link{
+    text-decoration: none;
+    color: $brand-col-2;
     &:after{
       display: block;
-      width: 50%;
+      width: 100%;
       content: '';
-      border-bottom:solid 1px;
+      border-bottom:solid 3px $brand-col-1;
     }
   }
   &--aside__feature-image{
