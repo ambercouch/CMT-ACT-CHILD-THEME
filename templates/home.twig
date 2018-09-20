@@ -18,14 +18,19 @@
 {% endblock %}
 
 
-{#{% block belowContent %}#}
-  {#<!-- removed comments in home.twig -->#}
-{#{% endblock %}#}
-{% set hasSideBar = true %}
-{% block sidebar %}
+{% block belowContent %}
+  <!-- removed comments in home.twig -->
+{% endblock %}
 
+{% set hasSideBar = true %}
+
+{% block sidebar %}
   <!-- removed comments in home.twig -->
   <div class="c-main__sidebar">
-    This is the sidebar
+    <div class="c-main__sidebar-widgets">
+      <div class="sidebar-widgets" >
+        {{ sidebar_widgets }}
+      </div>
+    </div>
   </div>
 {% endblock %}
