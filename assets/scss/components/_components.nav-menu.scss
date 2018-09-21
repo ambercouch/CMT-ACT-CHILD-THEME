@@ -20,6 +20,12 @@
     }
     //justify-content: center;
   }
+  &english-menu{
+    display: none;
+    @include mq($from : desktop){
+      display: block;
+    }
+  }
 }
 
 //BEM BLOCK MODIFIER FALLBACK .c-nav-menu--
@@ -93,10 +99,18 @@
     @extend .o-list-flex--center;
     justify-content: center;
   }
-  &english-menu{
+  &contact{
+    @extend .o-list-flex--center;
+  }
+  &english-menu, &menu-1{
     @extend .o-list-flex--center;
     justify-content: center;
   }
+  //&menu-1{
+  //  @extend .o-list-flex--center;
+  //  justify-content: center;
+  //
+  //}
 }
 
 //BEM ELEMENT MODIFIER FALLBACK .c-nav-menu__item--
@@ -110,9 +124,14 @@
     margin-right: $act-unit;
     margin-left: $act-unit;
   }
-  &english-menu{
+  &english-menu, &menu-1{
     border-right:solid 1px $brand-col-2;
     margin: 0;
+  }
+  &menu-footer{
+    margin-bottom: $act-unit-t;
+    border-bottom:solid 1px white;
+
   }
 }
 
@@ -142,7 +161,7 @@
     }
 
   }
-  &english-menu{
+  &english-menu, &menu-1{
     color: $brand-col-2;
     padding: $act-unit-s $act-unit;
     &:hover{
@@ -154,7 +173,7 @@
       background: $brand-col-3;
     }
   }
-  &top-nav{
+  &top-nav, &contact{
     @include act-font-size($inuit-font-size-small, 1);
     color: white;
     &:hover{
@@ -166,6 +185,7 @@
     display: block;
     color: white;
     background-color: darken($brand-col-3, 15%);
+    margin-bottom: 0;
     &:hover{
       color: white;
       background-color: darken($brand-col-3, 20%);
@@ -175,8 +195,9 @@
       background-color: darken($brand-col-3, 20%);
     }
   }
-  &mobile{
-    margin-bottom: $act-unit-s;
+  &menu-footer{
+    padding: $act-unit-t 0
+
   }
 }
 
@@ -247,3 +268,6 @@
   }
 }
 
+c-nav-menu__list--menu-1{
+  //display:none;
+}

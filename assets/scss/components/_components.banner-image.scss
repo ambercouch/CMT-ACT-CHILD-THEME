@@ -1,0 +1,58 @@
+/*
+  BEM BLOCK .c-banner-image
+ */
+
+.c-banner-image {
+  display: block;
+}
+
+/*
+  BEM BLOCK MODIFIER .c-banner-image--
+ */
+
+.c-banner-image-- {
+  &type {
+    display: block
+  }
+}
+
+//BEM BLOCK MODIFIER FALLBACK .c-banner-image--
+
+[class*=c-banner-image--] {
+  @extend .c-banner-image;
+}
+
+/*
+  BEM ELEMENTS .c-banner-image__
+ */
+
+.c-banner-image__ {
+  &header {
+    display: block
+  }
+  &img{
+    display: block;
+    margin: 0 auto $act-unit;
+  }
+  &heading {
+    display: block
+  }
+  &title {
+    display: inline;
+  }
+  &link {
+    display: inline
+  }
+  &content {
+    display: block
+  }
+  &footer {
+    display: block
+  }
+}
+
+//BEM ELEMENT MODIFIER FALLBACK .c-banner-image--
+
+[class*=c-banner-image__header--] {
+  @extend .c-banner-image__header;
+}

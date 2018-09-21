@@ -1,0 +1,69 @@
+/*
+  BEM BLOCK .subsidiary-widgets
+ */
+
+.subsidiary-widgets {
+  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  @include mq($from: tablet){
+    flex-wrap: nowrap;
+  }
+}
+
+/*
+  BEM BLOCK MODIFIER .subsidiary-widgets--
+ */
+
+.subsidiary-widgets-- {
+  &type {
+    display: block
+  }
+}
+
+//BEM BLOCK MODIFIER FALLBACK .subsidiary-widgets--
+
+[class*=subsidiary-widgets--] {
+  @extend .subsidiary-widgets;
+}
+
+/*
+  BEM ELEMENTS .subsidiary-widgets__
+ */
+
+.subsidiary-widgets__ {
+  &widget{
+    width: 100%;
+    padding-right: $act-unit;
+    @include mq($from: tablet){
+      width: 50%;
+    }
+    @include mq($from: desktop){
+      width: 33.33%;
+    }
+  }
+  &header {
+    display: block
+  }
+  &heading {
+    display: block
+  }
+  &title {
+    display: inline;
+  }
+  &link {
+    display: inline
+  }
+  &content {
+    display: block
+  }
+  &footer {
+    display: block
+  }
+}
+
+//BEM ELEMENT MODIFIER FALLBACK .subsidiary-widgets--
+
+[class*=subsidiary-widgets__header--] {
+  @extend .subsidiary-widgets__header;
+}

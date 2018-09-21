@@ -9,15 +9,25 @@ BEM BLOCK .c-main
     padding-top:0 !important;
   }
   &.has-side-bar{
-    display: flex !important;
+    @include mq($from: tablet) {
+      display: flex !important;
+}
+
   }
 }
 
 .c-main__{
   &sidebar{
-    width: 25%;
+
     background: $brand-col-5;
     padding: $act-unit;
+
+    @include mq($from: tablet) {
+      width: 35%;
+    }
+    @include mq($from: desktop) {
+      width: 25%;
+    }
   }
   &content{
     padding: $act-unit;
@@ -42,7 +52,15 @@ BEM BLOCK MODIFIERS .c-main--
 
 .c-main__content{
   .has-side-bar &{
+
+    @include mq($from: tablet) {
+      width: 65%;
+      padding-right: $act-unit-l;
+    }
+
+    @include mq($from: desktop) {
       width: 75%;
-    padding-right: $act-unit-h * 2;
+      padding-right: $act-unit-h * 2;
+    }
   }
 }

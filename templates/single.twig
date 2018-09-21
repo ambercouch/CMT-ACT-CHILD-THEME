@@ -14,7 +14,30 @@
 {% block feature %}
 {% endblock %}
 
+{% block before_content %}
+  <!-- Share Buttons -->
+  <div class="before_content">
+  <div class="before_content__c-share-links">
+    <div class="c-share-links">
+      <div class="c-share-links__group">
+        <h3 class="c-share-links__heading" >Share:</h3>
+        <!-- Twitter -->
+        <a class="c-share-links__link" target="_blank" class="twitter-share-button" href="https://twitter.com/intent/tweet?url={{ post.link }}&text={{ post.title }}"><i style="color: #55acee" class="fab fa-2x fa-twitter-square"></i></a>
+        <!-- LinkedIn -->
+        <a class="c-share-links__link"  target="_blank" class="linkedin-share-button" href="https://www.linkedin.com/shareArticle?mini=true&url={{ post.link }}&title={{ post.title }}&source=Chemical%20Translator"><i style="color: #007bb5" class="fab fa-2x fa-linkedin"></i></a>
+        <!-- Facebook -->
+        <a class="c-share-links__link"  target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ post.link }}" target="_blank"><i style="color: #3b5998" class="fab fa-2x fa-facebook-square"></i></a>
+      </div>
+      <div class="c-share-links__group">
+        <h3 class="c-share-links__heading" >Follow:</h3>
+        <a class="c-share-links__link"  href="{{ post.link }}/rss"><i class="fas fa-lg fa-rss"></i></a>
+      </div>
+    </div>
+  </div>
+  </div>
 
+
+{%  endblock %}
 {% block content %}
   {{  fn('is_paged')? fn('the_posts_navigation') : '' }}
   {% for post in posts %}
@@ -23,6 +46,20 @@
   {{  fn('is_paged')? fn('the_posts_navigation') : '' }}
 
 {% endblock %}
+
+{% set hasSideBar = true %}
+
+{% block sidebar %}
+  <!-- removed comments in home.twig -->
+  <div class="c-main__sidebar">
+    <div class="c-main__sidebar-widgets">
+      <div class="sidebar-widgets" >
+        {{ sidebar_widgets }}
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
 
 
 

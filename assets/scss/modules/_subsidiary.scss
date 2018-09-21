@@ -4,8 +4,15 @@
 
 .subsidiary {
   @extend .c-site-wrapper--responsive;
-  padding-top: 0;
-  background: $brand-col-1;
+  background: $cmt-blue-light;
+  color: white;
+  @include act-font-size($inuit-font-size-h5,1.2);
+  a{
+    color: white;
+    &:hover{
+      color:darken($brand-col-3,30%) !important;
+    }
+  }
 }
 
 /*

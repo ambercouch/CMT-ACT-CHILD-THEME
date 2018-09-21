@@ -1,5 +1,5 @@
 <!doctype html>
-<html {{ site.language_attributes }} data-env-{{environment}}={{environment}}>
+<html class="act"{{ site.language_attributes }} data-env-{{environment}}={{environment}}>
 <head>
   <!-- base.twig -->
   {% block before_head %}
@@ -20,6 +20,8 @@
 
 
   {{ fn('wp_head') }}
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
   {% block after_head %}
   {% endblock %}

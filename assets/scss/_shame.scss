@@ -2,3 +2,16 @@
 .type-post{
   float: none !important;
 }
+
+#archives-dropdown-4{
+  width:100%;
+}
+
+#wprmenu_bar{
+  .blog &{
+    display: none !important;
+  }
+}
+html.act{
+  padding-top: 0 !important;
+}

@@ -31,8 +31,16 @@ function ac_enqeue_styles() {
 require_once get_theme_file_path() . '/lib/wp-timber/timber--nav-menu.php';
 
 $context = Timber::get_context();
+$post = new TimberPost();
+$context['post'] = $post;
 $context['posts'] = Timber::get_posts();
 $context['foo'] = 'bar';
+
+
+$context['bannerImgPage'] = (get_field('banner_image', $post) == '') ?  false : get_field('banner_image', $post);
+
+
+//ac_dd($post);
 
 $templates = array( 'index.twig' );
 if ( is_home() ) {

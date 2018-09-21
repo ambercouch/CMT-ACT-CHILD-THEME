@@ -24,6 +24,10 @@
   }
   &submit{
     @extend .o-btn;
+    background: $brand-col-3;
+    &:hover{
+      background: darken($brand-col-3, 10%);
+    }
   }
   &label{
     display: none;
@@ -57,6 +61,7 @@
   }
   &submit{
     @extend .o-btn;
+
   }
 
 }

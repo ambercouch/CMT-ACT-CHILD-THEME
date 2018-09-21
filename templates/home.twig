@@ -8,6 +8,18 @@
   <!-- HERO REMOVED -->
 {% endblock %}
 
+{% block before_main %}
+  <div class="site__before-main">
+    <div class="before-main">
+      <div class="before-main__banner-image">
+        <div class="c-banner-image">
+          <img src="{{ bannerImgPage.url }}" alt="{{ bannerImgPage.alt }}" class="c-banner-image__img">
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
 {% block content %}
 
   {% for post in posts %}

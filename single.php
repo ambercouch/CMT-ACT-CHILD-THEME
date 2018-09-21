@@ -18,14 +18,16 @@ function ac_enqeue_styles() {
     wp_dequeue_style( 'parent-style' );
 }
 
+require_once get_theme_file_path() . '/lib/wp-timber/timber--nav-menu.php';
+
+
 $context = Timber::get_context();
 $post = Timber::query_post();
 $context['post'] = $post;
 $context['template'] = $post->post_type;
 $context['postType'] = $post->post_type;
 
-require_once get_theme_file_path() . '/lib/wp-timber/timber--nav-menu.php';
-//require_once get_template_directory() . '/lib/wp-timber/timber--comment-form.php';
+require_once get_theme_file_path() . '/lib/wp-timber/timber--comment-form.php';
 
 if ( post_password_required( $post->ID ) ) {
 	Timber::render( 'single-password.twig', $context );

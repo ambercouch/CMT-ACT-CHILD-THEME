@@ -18,6 +18,17 @@
     color: white;
     @include act-font-size($inuit-font-size-h6, 1.5)
   }
+  &sidebar{
+    padding-bottom:$act-unit;
+    border-bottom:solid 1px rgba($brand-col-3, 0.3);
+    margin-bottom: $act-unit-l;
+  }
+  &mobile-nav{
+    width: 300px !important;
+    max-width: 100%;
+    margin: 0 auto;
+
+  }
 }
 
 //BEM BLOCK MODIFIER FALLBACK .c-widget--
@@ -38,7 +49,7 @@
  }
 
   &title{
-    display: none;
+    //display: none;
   }
 }
 
