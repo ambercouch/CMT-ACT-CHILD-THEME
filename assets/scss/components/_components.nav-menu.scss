@@ -128,7 +128,7 @@
     border-right:solid 1px $brand-col-2;
     margin: 0;
   }
-  &menu-footer{
+  &menu-footer, &footer-menu-german{
     margin-bottom: $act-unit-t;
     border-bottom:solid 1px white;
 
@@ -195,7 +195,7 @@
       background-color: darken($brand-col-3, 20%);
     }
   }
-  &menu-footer{
+  &menu-footer, &footer-menu-german{
     padding: $act-unit-t 0
 
   }
