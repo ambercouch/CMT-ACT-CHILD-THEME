@@ -1,0 +1,86 @@
+.post-meta{
+  @include inuit-font-size($inuit-font-size-h5, 1);
+}
+
+.post-meta__{
+
+  &section{
+   margin-bottom: $act-unit-s;
+    @include act-font-size($inuit-font-size-h6,1)
+  }
+
+  &list{
+    @extend .o-list-bare;
+    @extend .o-list-inline;
+    margin-bottom: 0 !important;
+
+  }
+
+  &item{
+    @extend .o-list-bare__item;
+    @extend .o-list-inline__item;
+    &:after{
+      content: ',';
+    }
+    &:last-child:after{
+      content: '';
+    }
+  }
+
+  &label{
+    margin-bottom: $act-unit-t;
+    display: block;
+  }
+
+  &post-date{
+    @include inuit-font-size($inuit-font-size-h5, 1);
+    display: block;
+    visibility: inherit;
+  }
+
+
+  &post-tags{
+    margin-bottom: $act-unit-t;
+  }
+
+  &post-cats{
+    visibility: inherit;
+  }
+
+  &post-author{
+    visibility: inherit;
+  }
+
+  &post-edit{
+    @include inuit-font-size($inuit-font-size-h6, 1);
+    display: inline-block;
+  }
+
+  &post-edit-link{
+   @extend .c-btn;
+  }
+}
+
+[class*=post-meta--]{
+  @extend .post-meta;
+}
+
+[class*=post-meta__section--]{
+  @extend .post-meta__section;
+}
+
+[class*=post-meta__post-date--]{
+  @extend .post-meta__post-date;
+}
+
+[class*=post-meta__post-tags--]{
+  @extend .post-meta__post-tags;
+}
+
+[class*=post-meta__post-cats--]{
+  @extend .post-meta__post-cats;
+}
+
+[class*=post-meta__post-author--]{
+  @extend .post-meta__post-author;
+}
