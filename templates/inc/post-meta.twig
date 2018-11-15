@@ -11,11 +11,18 @@
   </div>
 
 
-  <div class="post-meta__tagged">
-    <div class="tagged">
-      {{ fn('_act_entry_footer') }}
+  {% if post.terms('tag') %}
+    <div class="post-meta__section--post-tags">
+      <div class="post-tags">
+        <span class="post-tags__label">Tags</span>
+        <ul class="post-tags__list">
+          {% for term in post.terms('tag') %}
+            <li class="post-tags__item" ><a class="post-tags__link" href="{{ term.link }}"><span class="post-tags__link-label">{{ term }}</span></a></li>
+          {% endfor %}
+        </ul>
+      </div>
     </div>
-  </div>
+  {% endif %}
 
   <span class="post-meta__post-date">{{ post.date }}</span>
 {% if postEditUrl != '' %}
