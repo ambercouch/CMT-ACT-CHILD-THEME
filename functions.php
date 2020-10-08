@@ -25,7 +25,18 @@ function ac_dequeue_styles() {
 //    echo '</script>';
 //}
 //add_action( 'wp_print_scripts', 'ac_inspect_scripts' );
+//
+//
 
+function conditionally_load_plugin_js_css()
+{
+    if (is_front_page())
+    { # Only load CSS and JS on needed Pages
+        wp_dequeue_script('contact-form-7'); # Restrict scripts.
+        wp_dequeue_script('google-recaptcha');
+        wp_dequeue_style('contact-form-7'); # Restrict css.
+    }
+} add_action( 'wp_enqueue_scripts', 'conditionally_load_plugin_js_css' );
 
 
 //Love, love, love, love all you functions
@@ -55,3 +66,5 @@ require_once get_theme_file_path() . '/lib/functions--cpt.php';
 require_once get_theme_file_path() . '/lib/admin/functions--admin-clean.php';
 require_once get_theme_file_path() . '/lib/admin/functions--admin-widgets.php';
 require_once get_theme_file_path() . '/lib/functions--walkers.php';
+
+add_theme_support( 'post-thumbnails',array('post'));

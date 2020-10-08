@@ -1,4 +1,4 @@
-var siteLocalUrl = 'chemicaltranslator2018.local';
+var siteLocalUrl = 'chemicaltranslator.local';
 var defaultBrowser =  ['Chrome'];
 
 var gulp = require('gulp');
