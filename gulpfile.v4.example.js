@@ -1,4 +1,4 @@
-var siteLocalUrl = 'chemicaltranslator.local';
+var siteLocalUrl = 'mysite.local';
 var defaultBrowser = ['C:\\Program Files \\Firefox Developer Edition\\firefox.exe', 'Chrome'];
 
 const gulp = require('gulp');
