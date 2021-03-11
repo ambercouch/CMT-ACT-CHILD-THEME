@@ -2,13 +2,13 @@
 
 {% block content %}
   <article id="post-{{ post.id }}" class="single-article {{ post.class }}">
-    {% if post.thumbnail %}
-      <div class="single-article__feature-image">
-        <div class="feature-image">
-          <img src="{{ post.thumbnail.src('feature500') }}" class="feature-image__img" alt="{{ post.title }}"/>
-        </div>
-      </div>
-    {%  endif %}
+{#    {% if post.thumbnail %}#}
+{#      <div class="single-article__feature-image">#}
+{#        <div class="feature-image">#}
+{#          <img src="{{ post.thumbnail.src('feature500') }}" class="feature-image__img" alt="{{ post.title }}"/>#}
+{#        </div>#}
+{#      </div>#}
+{#    {%  endif %}#}
 
     <header class="entry-header single-article__header ">
       <h1 class="entry-title single-article__heading">
