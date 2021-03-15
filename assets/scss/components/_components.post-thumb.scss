@@ -1,4 +1,4 @@
-.post {
+.c-post-thumb {
   //background: #fff;
   //display: flex;
   //flex-wrap: wrap;
@@ -16,23 +16,38 @@
     grid-template-rows: auto 2fr 1fr;
   }
 }
-.post__{
+
+[class*=c-post-thumb--] {
+  @extend .c-post-thumb;
+}
+
+
+.c-post-thumb__{
+
+  &cat-banner{
+    padding: $act-unit-t $act-unit-s;
+    text-align: right;
+    background: rgba($brand-col-3, 0.3);
+    color: white;
+    font-weight: bold;
+    line-height: 1;
+    margin-bottom: $act-unit-s;
+  }
 
   &feature-image {
     margin-bottom: $act-unit;
-
     @include mq($from : tablet){
       margin-bottom: 0;
       margin-right: $act-unit-l;
       grid-row-start: 1;
       grid-row-end: 4;
     }
-
   }
+
   &header {
     margin-bottom: $inuit-global-spacing-unit;
-
   }
+
   &heading {
     @include inuit-font-size($inuit-font-size-h2, 1);
     display: block;
@@ -70,7 +85,6 @@
     @extend .c-btn--col-2;
 
     margin-bottom: $act-unit-s;
-
   }
   &comment-link {
     @include inuit-font-size($act-fs-6 , 1);
@@ -81,63 +95,44 @@
     //right: 0;
   }
 }
-.post {
-  &--aside__feature-image{
-    //@extend .post__feature-image;
-  }
-  &--aside__header{
-    //@extend .post__header;
-  }
-  &--aside__body{
-    //@extend .post__body;
-  }
-  &--aside__footer{
-    //@extend .post__footer;
-  }
-  &--aside__comment-link{
-    //@extend .post__comment-link;
-  }
 
-  &--quote__feature-image{
-    //@extend .post__feature-image;
-  }
-  &--quote__header{
-    //@extend .post__header;
-  }
-  &--quote__body{
-    //@extend .post__body;
-  }
-  &--quote__footer{
-    //@extend .post__footer;
-  }
-  &--quote__comment-link{
-    //@extend .post__comment-link;
-  }
+
+[class*=c-post-thumb__feature-image--] {
+  @extend .c-post-thumb__feature-image;
 }
 
-.post{
-  &--video{
-    &__header{
-      @extend .post__header;
-    }
-    &__title{
-      @extend .post__title;
-    }
-    &__body{
-      @include inuit-font-size($inuit-font-size-h5);
-    }
-    &__feature-image{
-      @extend .post__feature-image;
-    }
-    &__footer{
-      @extend .post__footer;
-    }
-    &__post-meta{
-      @extend .post__post-meta;
-    }
-    &__comment-link{
-      @extend .post__comment-link;
-    }
+[class*=c-post-thumb__header--] {
+  @extend .c-post-thumb__header;
+}
 
-  }
+[class*=c-post-thumb__heading--] {
+  @extend .c-post-thumb__heading;
+}
+
+[class*=c-post-thumb__title--] {
+  @extend .c-post-thumb__title;
+}
+
+[class*=c-post-thumb__title-link--] {
+  @extend .c-post-thumb__title-link;
+}
+
+[class*=c-post-thumb__post-meta--] {
+  @extend .c-post-thumb__post-meta;
+}
+
+[class*=c-post-thumb__body--] {
+  @extend .c-post-thumb__body;
+}
+
+[class*=c-post-thumb__footer--] {
+  @extend .c-post-thumb__footer;
+}
+
+[class*=c-post-thumb__read-more--] {
+  @extend .c-post-thumb__read-more;
+}
+
+[class*=c-post-thumb__comment-link--] {
+  @extend .c-post-thumb__comment-link;
 }

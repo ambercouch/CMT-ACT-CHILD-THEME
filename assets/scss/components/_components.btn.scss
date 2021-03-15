@@ -59,6 +59,23 @@
       background: darken($brand-col-2,20%);
     }
   }
+  &read-more{
+    @extend .c-btn;
+    @extend .c-btn--n;
+    @extend .c-btn--col-2;
+
+    margin-bottom: $act-unit-s;
+  }
+  &media-link{
+    @extend .c-btn;
+    @extend .c-btn--n;
+    @extend .c-btn--col-2;
+    width: 300px;
+    max-width: 100%;
+    margin: 0 auto $act-unit-s auto;
+    display: block;
+    padding: $act-unit;
+  }
 }
 
 //BEM BLOCK MODIFIER FALLBACK .c-btn--

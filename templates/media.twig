@@ -1,0 +1,56 @@
+{% extends "base.twig" %}
+
+{% block before_head %}
+  <!-- home.twig -->
+{% endblock %}
+
+{% block hero%}
+  <!-- HERO REMOVED -->
+{% endblock %}
+
+{% block before_main %}
+  <div class="site__before-main">
+    <div class="before-main">
+      <div class="before-main__banner-image">
+        <div class="c-banner-image">
+          <img src="{{  theme.path }}/assets/images/png/media-archive-banner-en.png" alt="Media Archive" class="c-banner-image__img">
+        </div>
+      </div>
+      <div class="before-main__nav-menu">
+          {% set menuName = "media" %}
+          {% include 'inc/navigation.twig' %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+
+  {% for post in posts %}
+    {% set mediaCategories = fn('get_terms', 'media_category') %}
+    {% set mediaCategory =  mediaCategories[0].name %}
+    {% set postFormat = fn('get_post_format', post)? '-'~fn('get_post_format', post) : '' %}
+    {% include 'content/content'~postFormat~'.twig' %}
+  {% endfor %}
+
+{% endblock %}
+
+
+{% block belowContent %}
+  <!-- removed comments in home.twig -->
+{% endblock %}
+
+{% set hasSideBar = false %}
+
+{% block sidebar %}
+  <!-- removed comments in
+  <div class="c-main__sidebar">
+    <div class="c-main__sidebar-widgets">
+      <div class="sidebar-widgets" >
+        {{ sidebar_widgets }}
+      </div>
+    </div>
+  </div>
+  -->
+{% endblock %}
