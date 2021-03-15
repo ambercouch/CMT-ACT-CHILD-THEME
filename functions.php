@@ -58,6 +58,7 @@ require_once get_theme_file_path() . '/lib/acf/functions--acf-video-settings.php
 require_once get_theme_file_path() . '/lib/acf/functions--acf-page-settings.php';
 require_once get_theme_file_path() . '/lib/acf/functions--acf-service-settings.php';
 require_once get_theme_file_path() . '/lib/acf/functions--acf-page-content.php';
+require_once get_theme_file_path() . '/lib/acf/functions--acf-media-content.php';
 
 require_once get_theme_file_path() . '/lib/functions--template-tags.php';
 require_once get_theme_file_path() . '/lib/functions--ac-menu-filters.php';
