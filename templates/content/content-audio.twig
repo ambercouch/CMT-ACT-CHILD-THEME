@@ -3,13 +3,19 @@
 <!-- content.twig -->
 {% block content %}
   <article id="post-{{ post.id }}" class="c-post-thumb{{ postFormatClass }} {{ post.class }}">
-  {% if post.thumbnail %}
-    <div class="c-post-thumb__feature-image{{ postFormatClass }}">
-      <div class="feature-image">
-        <img src="{{ post.thumbnail.src('feature500') }}" class="feature-image__img" alt="{{ post.title }}"/>
+    {% if post.thumbnail %}
+      <div class="c-post-thumb__feature-image{{ postFormatClass }}">
+        <div class="feature-image">
+          <img src="{{ post.thumbnail.src('feature500') }}" class="feature-image__img" alt="{{ post.title }}"/>
+        </div>
       </div>
-    </div>
-  {%  endif %}
+    {%  else %}
+      <div class="c-post-thumb__feature-image{{ postFormatClass }}">
+        <div class="feature-image">
+          {#            <img src="{{ post.thumbnail.src('feature500') }}" class="feature-image__img" alt="{{ post.title }}"/>#}
+        </div>
+      </div>
+    {%  endif %}
 
     <header class="entry-header c-post-thumb__header{{ postFormatClass }} ">
       <div class="c-post-thumb__cat-banner">{{ mediaCategory }}</div>
@@ -48,11 +54,13 @@
 
 
     <footer class="c-post-thumb__footer{{ postFormatClass }}">
-      <a class="c-btn--media-link" href="{{ post.meta('media_link_url') }}" title="{{ post.meta('media_link_url') }}" >Listen Now</a>
+      {% if post.meta('media_link_url') != '' %}
+        <a class="c-btn--media-link" href="{{ post.meta('media_link_url') }}" title="{{ post.meta('media_link_url') }}" >{{ post.meta('media_link_url_button_label') }}</a>
+      {% endif  %}
       {% if post.comment_count > 0   %}
-      <a class="c-post-thumb__comment-link{{ postFormatClass }}" href="{{ post.link }}#comments">
-        <span>{{ post.comment_count }} Comments </span>
-      </a>
+        <a class="c-post-thumb__comment-link{{ postFormatClass }}" href="{{ post.link }}#comments">
+          <span>{{ post.comment_count }} Comments </span>
+        </a>
       {% endif %}
 
     </footer>

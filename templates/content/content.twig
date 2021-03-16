@@ -2,19 +2,26 @@
 {% set postFormatRead = postFormat? fn('get_post_format', post) : '' %}
 <!-- content.twig -->
 {% block content %}
-  <article id="post-{{ post.id }}" class="post{{ postFormatClass }} {{ post.class }}">
-  {% if post.thumbnail %}
-    <div class="post{{ postFormatClass }}__feature-image">
-      <div class="feature-image">
-        <img src="{{ post.thumbnail.src('feature500') }}" class="feature-image__img" alt="{{ post.title }}"/>
+  <article id="post-{{ post.id }}" class="c-post-thumb{{ postFormatClass }} {{ post.class }}">
+    {% if post.thumbnail %}
+      <div class="c-post-thumb__feature-image{{ postFormatClass }}">
+        <div class="feature-image">
+          <img src="{{ post.thumbnail.src('feature500') }}" class="feature-image__img" alt="{{ post.title }}"/>
+        </div>
       </div>
-    </div>
-  {%  endif %}
+      {%  else %}
+        <div class="c-post-thumb__feature-image{{ postFormatClass }}">
+          <div class="feature-image">
+{#            <img src="{{ post.thumbnail.src('feature500') }}" class="feature-image__img" alt="{{ post.title }}"/>#}
+          </div>
+        </div>
+    {%  endif %}
 
-    <header class="entry-header post__header{{ postFormatClass }} ">
-      <h2 class="entry-title post__heading{{ postFormatClass }}">
-        <span class="post__title{{ postFormatClass }}">
-          <a class="post__title-link{{ postFormatClass }}" href="{{ post.link }}">{{ post.title }}</a>
+    <header class="entry-header c-post-thumb__header{{ postFormatClass }} ">
+      <div class="c-post-thumb__cat-banner">{{ mediaCategory }}</div>
+      <h2 class="entry-title c-post-thumb__heading{{ postFormatClass }}">
+        <span class="c-post-thumb__title{{ postFormatClass }}">
+          <a class="c-post-thumb__title-link{{ postFormatClass }}" href="{{ post.link }}">{{ post.title }}</a>
         </span>
       </h2>
       <div class="entry-meta post__post-meta{{ postFormatClass }}">
@@ -22,23 +29,39 @@
       </div>
     </header>
 
-    {% if  post.post_excerpt != '' %}
-      <div class="entry-content post{{ postFormatClass }}__body">
+    {% if  post.meta('rich_excerpt') != '' %}
+      <div class="entry-content c-post-thumb__body{{ postFormatClass }}">
+        {{ post.meta('rich_excerpt') }}
+
+
+        {% if  post.content != '' %}
+          <a href="{{ post.link }}" class="c-post-thumb__read-more{{ postFormatClass }}">Read More</a>
+        {% endif %}
+      </div>
+    {% elseif  post.post_excerpt != '' %}
+      <div class="entry-content c-post-thumb__body{{ postFormatClass }}">
         {{ post.post_excerpt }}
-        <a href="{{ post.link }}" class="post{{ postFormatClass }}__read-more">Read More</a>
+        <a href="{{ post.link }}" class="c-post-thumb__read-more{{ postFormatClass }}">Read More</a>
       </div>
 
     {% else %}
-      <div class="entry-content post{{ postFormatClass }}__body">
+      <div class="entry-content c-post-thumb__body{{ postFormatClass }}">
         <p>{{ post.content | striptags | truncate(60) }}</p>
-        <a href="{{ post.link }}" class="post{{ postFormatClass }}__read-more">Read More</a>
+        <a href="{{ post.link }}" class="c-post-thumb__read-more{{ postFormatClass }}">Read More</a>
       </div>
 
     {% endif %}
-    <footer class="post{{ postFormatClass }}__footer">
-      <a class="post{{ postFormatClass }}__comment-link" href="{{ post.link }}#comments">
-        <span>{{ post.comment_count }} Comments </span>
-      </a>
+
+
+    <footer class="c-post-thumb__footer{{ postFormatClass }}">
+      {% if post.meta('media_link_url') != '' %}
+      <a class="c-btn--media-link" href="{{ post.meta('media_link_url') }}" title="{{ post.meta('media_link_url') }}" >{{ post.meta('media_link_url_button_label') }}</a>
+      {% endif  %}
+      {% if post.comment_count > 0   %}
+        <a class="c-post-thumb__comment-link{{ postFormatClass }}" href="{{ post.link }}#comments">
+          <span>{{ post.comment_count }} Comments </span>
+        </a>
+      {% endif %}
 
     </footer>
 
