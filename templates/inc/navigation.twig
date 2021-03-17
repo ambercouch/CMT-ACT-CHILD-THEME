@@ -4,8 +4,8 @@
 {% set menu = _context['menu' ~ menuName | capitalize ] %}
 <div class="c-nav-menu--{{ menuName }}">
   {% if menuTitle != '' %}
-    <h4 class="c-nav-menu__heading">
-      <span class="c-nav-menu__title">
+    <h4 class="c-nav-menu__heading--{{ menuName }}">
+      <span class="c-nav-menu__title--{{ menuName }}">
         {{ menuTitle }}
       </span>
     </h4>

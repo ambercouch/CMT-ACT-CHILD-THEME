@@ -16,6 +16,9 @@
           <img src="{{  theme.path }}/assets/images/png/media-archive-banner-en.png" alt="Media Archive" class="c-banner-image__img">
         </div>
       </div>
+
+      {% include 'inc/widget-area.twig' with {'widgetContainer' : 'main-before'}%}
+
       <div class="before-main__nav-menu">
           {% set menuName = "media" %}
         {% set menuTitle = "Filter" %}
@@ -29,7 +32,7 @@
 {% block content %}
 
   {% for post in posts %}
-    {% set mediaCategories = fn('get_terms', 'media_category') %}
+    {% set mediaCategories = fn('wp_get_post_terms', post.id, 'media_category') %}
     {% set mediaCategory =  mediaCategories[0].name %}
     {% set postFormat = fn('get_post_format', post)? '-'~fn('get_post_format', post) : '' %}
     {% include 'content/content'~postFormat~'.twig' %}

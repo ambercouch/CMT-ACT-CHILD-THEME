@@ -1,27 +1,27 @@
 //text-align
-.u-tac{
-  text-align: center;
+.u-tac,.u-ta-c{
+  text-align: center !important;
 }
-.u-tal{
-  text-align: left;
+.u-tal, .u-ta-l{
+  text-align: left !important;
 }
-.u-tar{
-   text-align: right;
+.u-tar, .u-ta-r{
+   text-align: right !important;
  }
-.u-taj{
-  text-align: justify;
+.u-taj, .u-ta-j{
+  text-align: justify !important;
 }
 
 
 
 //text-transform
-.u-ttu{
-   text-transform: uppercase;
+.u-ttu, u-tt-u{
+   text-transform: uppercase !important;
  }
-.u-ttl{
-  text-transform: lowercase;
+.u-ttl, .u-tt-l{
+  text-transform: lowercase !important;
 }
-.u-ttc{
-  text-transform: capitalize;
+.u-ttc, .u-tt-c{
+  text-transform: capitalize !important;
 }
 

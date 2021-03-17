@@ -26,6 +26,9 @@
       display: block;
     }
   }
+  &media{
+    display: flex;
+  }
 }
 
 //BEM BLOCK MODIFIER FALLBACK .c-nav-menu--
@@ -39,6 +42,12 @@
  */
 
 .c-nav-menu__ {
+  &heading{
+    display: block;
+  }
+  &title{
+    display: inline;
+  }
   &list{
     @extend .o-list-bare;
     margin-bottom: 0;
@@ -138,11 +147,47 @@
   }
 }
 
+//BEM ELEMENT MODIFIER FALLBACK .c-nav-menu__heading--
+
+[class*=c-nav-menu__heading--] {
+  @extend .c-nav-menu__heading !optional;
+}
+
+.c-nav-menu__heading--{
+  &media{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 0;
+  }
+}
+
+//BEM ELEMENT MODIFIER FALLBACK .c-nav-menu__link--
+
+[class*=c-nav-menu__title--] {
+  @extend .c-nav-menu__ !optional;
+}
+
+.c-nav-menu__title--{
+  &media{
+    display: block;
+    text-transform: uppercase;
+    color: $brand-col-3;
+    &:after{
+      content: ':';
+      margin-right: $act-unit;
+    }
+  }
+}
+
 //BEM ELEMENT MODIFIER FALLBACK .c-nav-menu__item--
 
 [class*=c-nav-menu__item-sub-menu--] {
   @extend .c-nav-menu__item-sub-menu !optional;
 }
+
+
+
 
 
 //BEM ELEMENT MODIFIER FALLBACK .c-nav-menu__link--
@@ -205,6 +250,7 @@
     padding: $act-unit-s;
     background: $brand-col-3;
     color: #fff;
+    font-weight: 700;
   }
 }
 
