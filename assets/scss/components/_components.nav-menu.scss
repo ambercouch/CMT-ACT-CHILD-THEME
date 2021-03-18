@@ -29,6 +29,7 @@
   &media{
     display: flex;
   }
+
 }
 
 //BEM BLOCK MODIFIER FALLBACK .c-nav-menu--
@@ -117,6 +118,9 @@
   }
   &media{
     @extend .o-list-flex;
+  }
+  &pagination{
+    @extend .o-flex-split--last;
   }
   //&menu-1{
   //  @extend .o-list-flex--center;
@@ -251,6 +255,10 @@
     background: $brand-col-3;
     color: #fff;
     font-weight: 700;
+  }
+  &pagination{
+    @include act-font-size($inuit-font-size-h4,1);
+    //display: none !important;
   }
 }
 

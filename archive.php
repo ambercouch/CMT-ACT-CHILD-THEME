@@ -13,6 +13,29 @@
  * @since   Timber 0.1
  */
 
+$query_object = get_queried_object();
+//echo '<pre>';
+//print_r($query_object); die();
+
+if(property_exists($query_object, 'slug'))
+{
+    $tax_query = array(
+        array(
+            'taxonomy' => 'media_category',
+            'field'    => 'slug',
+            'terms'    => $query_object->slug
+        )
+    );
+}else{
+    $tax_query = false;
+}
+
+
+global $paged;
+if (!isset($paged) || !$paged){
+    $paged = 1;
+}
+
 if ( ! class_exists( 'Timber' ) ) {
     echo 'Timber not activated. Make sure you activate the plugin in <a href="/cms/wp-admin/plugins.php#timber">cms/wp-admin/plugins.php</a>';
     return;
@@ -33,7 +56,15 @@ require_once get_theme_file_path() . '/lib/wp-timber/timber--nav-menu.php';
 $context = Timber::get_context();
 $post = new TimberPost();
 $context['post'] = $post;
-$context['posts'] = Timber::get_posts();
+
+$args = array(
+    'post_type' => 'media',
+    'posts_per_page' => 10,
+    'paged' => $paged,
+    'tax_query' => $tax_query
+);
+
+$context['posts'] = new Timber\PostQuery($args);
 $context['foo'] = 'bar';
 
 
