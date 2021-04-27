@@ -15,3 +15,10 @@
 html.act{
   padding-top: 0 !important;
 }
+
+body.error404{
+  background: #000;
+  color: #fff;
+  background-image: url("/wp-content/themes/chemical-translator-child/assets/images/jpg/chemical-translation-404.jpg") ;
+  background-repeat: no-repeat;
+}
