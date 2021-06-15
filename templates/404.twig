@@ -1,24 +1,23 @@
 	{% extends "base-blank.twig" %}
 
-	{% block header %}
-
-	{% endblock %}
-
-	{% block mobile_nav %}
-	{%  endblock %}
-
-	{% block hero %}
-	{% endblock %}
-
-	 {% block before_main %}
-	 {% endblock %}
 
 {% block content %}
-	Sorry, we couldn't find what you're looking for.
-{% endblock %}
+	<div class="c-wrapper--404">
+		<div class="lang-en">
+		<h1 class="u-fw-700 u-fs-g">404</h1>
+		<p class="u-fw-700">Oh no, you definitely didn’t want this page!</p>
+		<p>Looks like we need to tweak the technology behind the scenes.</p>
+		<p>Don’t worry, your translations are in the hands of a real-life human. You can contact me here:
+			<a href="mailto:sarah@chemicaltranslator.com">sarah@chemicaltranslator.com</a></p>
+		</div>
+		<div class="lang-de">
+			<h1 class="u-fw-700 u-fs-g">404</h1>
+			<p class="u-fw-700">Oh nein, diese Seite haben Sie definitiv nicht erwartet!</p>
+			<p>Scheinbar müssen wir noch etwas an der Technik im Hintergrund schrauben.</p>
+			<p>Aber keine Sorge, Ihre Übersetzungen sind in den Händen eines echten Menschen. Sie können mich unter der folgenden E-Mail-Adresse kontaktieren:
+				<a href="mailto:sarah@chemicaltranslator.com"> sarah@chemicaltranslator.com</a></p>
 
-	 {% block subsidiary %}
-	 {% endblock %}
+		</div>
+	</div>
+			{% endblock %}
 
-	{% block footer %}
-	{% endblock %}

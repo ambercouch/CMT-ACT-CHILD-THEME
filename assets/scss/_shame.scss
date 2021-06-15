@@ -17,8 +17,51 @@ html.act{
 }
 
 body.error404{
-  background: #000;
+  background-color: #000;
+  position: relative;
   color: #fff;
   background-image: url("/wp-content/themes/chemical-translator-child/assets/images/jpg/chemical-translation-404.jpg") ;
   background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+  height: 100vh;
+  width: 100vw;
+  &:before{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(54,70,96,1) 20%, rgba(54,70,96,0) 80%);
+    position: absolute;
+    top: 0;
+  }
+}
+
+.c-wrapper--404{
+  position: relative;
+  z-index: 10;
+  @include mq($from : desktop){
+    width: 600px;
+    max-width: 100%;
+  }
+}
+
+.wprm-wrapper{
+  .error404 &{
+    display: none !important;
+  }
+}
+
+  .lang-de {
+  display: none;
+    [lang*=de] &{
+    display: block;
+  }
+  }
+
+.lang-en {
+  display: none;
+  [lang*=en] &{
+    display: block;
+  }
 }
