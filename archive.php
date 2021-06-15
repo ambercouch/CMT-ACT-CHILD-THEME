@@ -1,45 +1,18 @@
 <?php
 /**
- * The main template file
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists
+ * The template for displaying Archive pages.
+ *
+ * Used to display archive-type pages if nothing more specific matches a query.
+ * For example, puts together date-based pages if no date.php file exists.
+ *
+ * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
  * Methods for TimberHelper can be found in the /lib sub-directory
  *
  * @package  WordPress
  * @subpackage  Timber
- * @since   Timber 0.1
+ * @since   Timber 0.2
  */
-
-$query_object = get_queried_object();
-//echo '<pre>';
-//print_r($query_object); die();
-
-if(property_exists($query_object, 'slug'))
-{
-    $tax_query = array(
-        array(
-            'taxonomy' => 'media_category',
-            'field'    => 'slug',
-            'terms'    => $query_object->slug
-        )
-    );
-}else{
-    $tax_query = false;
-}
-
-
-global $paged;
-if (!isset($paged) || !$paged){
-    $paged = 1;
-}
-
-if ( ! class_exists( 'Timber' ) ) {
-    echo 'Timber not activated. Make sure you activate the plugin in <a href="/cms/wp-admin/plugins.php#timber">cms/wp-admin/plugins.php</a>';
-    return;
-}
 
 add_action( 'wp_print_styles', 'ac_enqeue_styles' );
 function ac_enqeue_styles() {
@@ -53,30 +26,30 @@ function ac_enqeue_styles() {
 
 require_once get_theme_file_path() . '/lib/wp-timber/timber--nav-menu.php';
 
-$context = Timber::get_context();
+$templates = array('archive.twig', 'home.twig' );
+
+$context = Timber::context();
+
+$context['title'] = 'Archive';
+if ( is_day() ) {
+    $context['title'] = 'Archive: ' . get_the_date( 'D M Y' );
+} elseif ( is_month() ) {
+    $context['title'] = 'Archive: ' . get_the_date( 'M Y' );
+} elseif ( is_year() ) {
+    $context['title'] = 'Archive: ' . get_the_date( 'Y' );
+} elseif ( is_tag() ) {
+    $context['title'] = single_tag_title( '', false );
+} elseif ( is_category() ) {
+    $context['title'] = single_cat_title( '', false );
+    array_unshift( $templates, 'archive-' . get_query_var( 'cat' ) . '.twig' );
+} elseif ( is_post_type_archive() ) {
+    $context['title'] = post_type_archive_title( '', false );
+    array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
+}
+
 $post = new TimberPost();
 $context['post'] = $post;
 
-$args = array(
-    'post_type' => 'media',
-    'posts_per_page' => 10,
-    'paged' => $paged,
-    'tax_query' => $tax_query
-);
+$context['posts'] = new Timber\PostQuery();
 
-$context['posts'] = new Timber\PostQuery($args);
-$context['foo'] = 'bar';
-
-
-$context['bannerImgPage'] = (get_field('banner_image', $post) == '') ?  false : get_field('banner_image', $post);
-
-
-//ac_dd($post);
-
-$templates = array( 'media.twig' );
-//if ( is_home() ) {
-//    array_unshift( $templates, 'home.twig' );
-//}
 Timber::render( $templates, $context );
-
-//require_once get_theme_file_path() . '/lib/wp-timber/timber--nav-menu.php';
