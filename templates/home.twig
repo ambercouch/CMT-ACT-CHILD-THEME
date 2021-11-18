@@ -16,8 +16,15 @@
           <img src="{{ bannerImgPage.url }}" alt="{{ bannerImgPage.alt }}" class="c-banner-image__img">
         </div>
       </div>
+      <div class="before-main__nav-menu">
+        {% set menuName = "categories" %}
+        {% set menuTitle = "Filter" %}
+        {% include 'inc/navigation.twig' %}
+      </div>
     </div>
   </div>
+
+
 {% endblock %}
 
 {% block content %}

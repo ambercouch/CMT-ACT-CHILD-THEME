@@ -29,6 +29,9 @@
   &media{
     display: flex;
   }
+  &categories{
+    @extend .c-nav-menu--media;
+  }
 
 }
 
@@ -119,6 +122,9 @@
   &media{
     @extend .o-list-flex;
   }
+  &categories{
+    @extend .c-nav-menu__list--media;
+  }
   &pagination{
     @extend .o-flex-split--last;
   }
@@ -164,6 +170,9 @@
     justify-content: center;
     margin-bottom: 0;
   }
+  &categories{
+    @extend .c-nav-menu__heading--media;
+  }
 }
 
 //BEM ELEMENT MODIFIER FALLBACK .c-nav-menu__link--
@@ -181,6 +190,9 @@
       content: ':';
       margin-right: $act-unit;
     }
+  }
+  &categories{
+    @extend .c-nav-menu__title--media
   }
 }
 
@@ -255,6 +267,9 @@
     background: $brand-col-3;
     color: #fff;
     font-weight: 700;
+  }
+  &categories{
+    @extend .c-nav-menu__link--media;
   }
   &pagination{
     @include act-font-size($inuit-font-size-h4,1);
