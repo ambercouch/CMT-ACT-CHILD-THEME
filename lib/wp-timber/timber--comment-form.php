@@ -12,10 +12,10 @@ function act_comment_form_fields( $fields ) {
 
     $fields   =  array(
         'author' => '<div class="comment-respond__input-wrapper--author">' . '<label class="comment-respond__label" for="author">' . __( 'Name' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
-            '<input class="comment-respond__input--text" placeholder="' . __( 'Name' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '" id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30" maxlength="245"' . $aria_req . $html_req . ' /></div>',
+            '<input class="comment-respond__input--text" placeholder="' . __( 'Name' ) . ( $req ? '*' : '' ) . '" id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30" maxlength="245"' . $aria_req . $html_req . ' /></div>',
         'email'  => '<div class="comment-respond__input-wrapper--email"><label class="comment-respond__label" for="email">' . __( 'Email' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
-            '<input class="comment-respond__input--text" placeholder="' . __( 'Email' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '" id="email" name="email" ' . ( $html5 ? 'type="email"' : 'type="text"' ) . ' value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30" maxlength="100" aria-describedby="email-notes"' . $aria_req . $html_req  . ' />'.
-            '<div class="comment-respond__email-notes"><small>Your email will not be published</small></div></div>',
+            '<input class="comment-respond__input--text" placeholder="' . __( 'Email' ) . ( $req ? '*' : '' ) . '" id="email" name="email" ' . ( $html5 ? 'type="email"' : 'type="text"' ) . ' value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30" maxlength="100" aria-describedby="email-notes"' . $aria_req . $html_req  . ' />'.
+            '<div class="comment-respond__email-notes"><small>Your email will not be published 123</small></div></div>',
         'url'    => '<div class="comment-respond__input-wrapper--url"><label class="comment-respond__label" for="url">' . __( 'Website' ) . '</label> ' .
             '<input class="comment-respond__input--text" placeholder="' . __( 'Website' ) . '" gid="url" name="url" ' . ( $html5 ? 'type="url"' : 'type="text"' ) . ' value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" maxlength="200" /></div>',
     );
@@ -52,7 +52,7 @@ $args = array(
     'must_log_in'          => '<div class="comment-respond__log-in">' . sprintf( __( 'You must be <a href="%s">logged in</a> to post a comment.' ), wp_login_url( apply_filters( 'the_permalink', get_permalink( ) ) ) ) . '</div>',
     /** This filter is documented in wp-includes/link-template.php */
     'logged_in_as'         => '<div class="comment-respond__logged-in">' . sprintf( __( '<a href="%1$s" aria-label="Logged in as %2$s. Edit your profile.">Logged in as %2$s</a>. <a href="%3$s">Log out?</a>' ), get_edit_user_link(), $user_identity, wp_logout_url( apply_filters( 'the_permalink', get_permalink() ) ) ) . '</div>',
-//    'comment_notes_before' => '<div class="comment-respond__notes"><span id="email-notes">' . __( 'Your email address will not be published.' ) . '</span> </div>',
+    //    'comment_notes_before' => '<div class="comment-respond__notes"><span id="email-notes">' . __( 'Your email address will not be published.' ) . '</span> </div>',
     'comment_notes_before' => '',
     'comment_notes_after'  => '',
     'class_form'           => 'comment-respond__form',
@@ -106,4 +106,4 @@ $args = array(
     'echo'              => false // don't echo the form as we will store it in the twig context var
 );
 // $args for comment_list passed to twig
-$context['comment_list'] = wp_list_comments($args, get_comments(array('post_id' => $post->ID)));
+$context['comment_list'] = wp_list_comments($args, get_comments(array('status' => 'approved','post_id' => $post->ID)));
