@@ -69,3 +69,13 @@ require_once get_theme_file_path() . '/lib/admin/functions--admin-widgets.php';
 require_once get_theme_file_path() . '/lib/functions--walkers.php';
 
 add_theme_support( 'post-thumbnails',array('post'));
+
+/*
+ * Add .twig files to the theme editor
+ */
+
+function add_custom_editor_file_types( $types ) {
+    $types[] = 'twig';
+    return $types;
+}
+add_filter( 'wp_theme_editor_filetypes', 'add_custom_editor_file_types' );
