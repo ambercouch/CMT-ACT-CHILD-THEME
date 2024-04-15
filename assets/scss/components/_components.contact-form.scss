@@ -43,7 +43,7 @@
 
 //BEM BLOCK MODIFIER FALLBACK .c-contact-form--
 
-[class*=contact-form--] {
+[class*=c-contact-form--] {
   @extend .c-contact-form;
 }
 
@@ -171,4 +171,8 @@
 
 .wpcf7-form-control-wrap{
   @extend .c-contact-form__input-wrapper;
+}
+
+.wpcf7-file{
+  background: #fff;
 }

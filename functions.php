@@ -79,3 +79,12 @@ function add_custom_editor_file_types( $types ) {
     return $types;
 }
 add_filter( 'wp_theme_editor_filetypes', 'add_custom_editor_file_types' );
+
+add_filter('wpcf7_autop_or_not', '__return_false');
+
+
+add_action( 'wp_footer', 'act_add_footer_styles' );
+function act_add_footer_styles() {
+    wp_register_style('ac_cmt_global', get_stylesheet_directory_uri() . '/assets/css/ac-cmt.css', array(), filemtime(get_stylesheet_directory() . '/assets/css/ac-cmt.css') );
+    wp_enqueue_style('ac_cmt_global');
+}

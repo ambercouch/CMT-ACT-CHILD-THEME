@@ -1,0 +1,15 @@
+body{
+   // display: none;
+}
+
+[class*=c-contact-form]{
+   display: block;
+}
+[class*=c-contact-form__label]{
+   display: block;
+}
+
+.wpcf7-form-control{
+   margin-bottom: 10px;
+   padding: 5px;
+}
