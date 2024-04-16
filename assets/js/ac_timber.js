@@ -2,7 +2,7 @@
  * Created by Richard on 19/09/2016.
  */
 
-//console.log('ACTIMBER');
+console.log('ACTIMBER');
 ACTIMBER = {
     common: {
         init: function () {
@@ -15,7 +15,7 @@ ACTIMBER = {
 
             //$("[data-fitvid]").fitVids();
 
-            
+
             /**
              * navigation.js
              *
@@ -64,6 +64,32 @@ ACTIMBER = {
             //    }
             //  };
             //} )();
+
+            document.addEventListener( 'wpcf7mailsent', function( event ) {
+
+
+                var formTag = event.detail.unitTag;
+
+                var form = document.querySelector('#' + formTag);
+
+                var output = form.querySelector('.wpcf7-response-output');
+
+
+
+
+                switch(event.detail.contactFormId) {
+                    case 27318:  // CF7 form ID for one form
+                        // Add a custom class
+                        output.classList.add('is-hidden');
+                        window.location.href = '/thank-you-for-requesting-a-quote/';
+                        break;
+                    case 28675:  // CF7 form ID for another form
+                        output.classList.add('is-hidden');
+                        window.location.href = '/another-thank-you-page/';
+                        break;
+                    // Add more cases as needed for additional forms and URLs
+                }
+            }, false );
 
 
         }

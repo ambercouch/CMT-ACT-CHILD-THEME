@@ -3,7 +3,12 @@
 
 add_action( 'wp_enqueue_scripts', 'ac_enqueue_styles' );
 function ac_enqueue_styles() {
+
+    $js_path = get_stylesheet_directory() . '/dist/js/main.js';
+
     //enqeue the parent theme files
+    wp_enqueue_script('cmt-child', get_stylesheet_directory_uri() . '/dist/js/main.js', array('jquery'), filemtime($js_path), true);
+
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
 }
 
@@ -88,3 +93,5 @@ function act_add_footer_styles() {
     wp_register_style('ac_cmt_global', get_stylesheet_directory_uri() . '/assets/css/ac-cmt.css', array(), filemtime(get_stylesheet_directory() . '/assets/css/ac-cmt.css') );
     wp_enqueue_style('ac_cmt_global');
 }
+
+
