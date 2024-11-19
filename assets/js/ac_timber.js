@@ -2,7 +2,7 @@
  * Created by Richard on 19/09/2016.
  */
 
-console.log('ACTIMBER');
+console.log('ACTIMBER 456');
 ACTIMBER = {
     common: {
         init: function () {
@@ -85,7 +85,7 @@ ACTIMBER = {
                         break;
                     case 28675:  // CF7 form ID for another form
                         output.classList.add('is-hidden');
-                        window.location.href = '/another-thank-you-page/';
+                        window.location.href = '/de/thank-you-for-requesting-a-quote/';
                         break;
                     // Add more cases as needed for additional forms and URLs
                 }
