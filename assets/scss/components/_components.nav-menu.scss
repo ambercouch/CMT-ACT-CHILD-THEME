@@ -20,7 +20,7 @@
     }
     //justify-content: center;
   }
-  &english-menu{
+  &english-menu, &german-menu{
     display: none;
     @include mq($from : desktop){
       display: block;
@@ -115,7 +115,7 @@
   &contact{
     @extend .o-list-flex--center;
   }
-  &english-menu, &menu-1{
+  &english-menu, &menu-1, &german-menu{
     @extend .o-list-flex--center;
     justify-content: center;
   }
@@ -146,7 +146,7 @@
     margin-right: $act-unit;
     margin-left: $act-unit;
   }
-  &english-menu, &menu-1{
+  &english-menu, &menu-1, &german-menu{
     border-right:solid 1px $brand-col-2;
     margin: 0;
   }
@@ -225,7 +225,7 @@
     }
 
   }
-  &english-menu, &menu-1{
+  &english-menu, &menu-1, &german-menu{
     color: $brand-col-2;
     padding: $act-unit-s $act-unit;
     &:hover{
