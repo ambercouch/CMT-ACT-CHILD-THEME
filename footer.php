@@ -30,11 +30,11 @@
 
 <div class="widget-area">
 <div class="copy-right">
-					<div class="footer-left">Chemical Translator  &copy;right 2021 All rights reserved.   <!-- German pages translated by Jessica Lucio <a href="http://doubledottranslations.com" target="_blank">http://doubledottranslations.com</a> --></div>
+					<div class="footer-left">Chemical Translator  &copy;right 2021 - <?php echo date('Y'); ?> All rights reserved.   <!-- German pages translated by Jessica Lucio <a href="http://doubledottranslations.com" target="_blank">http://doubledottranslations.com</a> --></div>
 					<div class="footer-right">
 <ul>
 
-                           <li><a href="https://www.linkedin.com/in/sarahsilvatranslator" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/icon-ln.png" alt=""/></a></li>
+                           <li><a href="https://www.linkedin.com/in/sarah-silva-translator/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/icon-ln.png" alt=""/></a></li>
 
                             <li><a href="https://www.facebook.com/chemicaltranslator"  target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/icon-fb.png" alt=""/></a></li>
 

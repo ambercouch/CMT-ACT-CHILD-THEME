@@ -109,7 +109,7 @@
                         	<li class="email"><a href="mailto:sarah@chemicaltranslator.com">sarah@chemicaltranslator.com</a></li>
 
 
-                            <li><a href="https://www.linkedin.com/in/sarahsilvatranslator" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/icon-ln.png" alt=""/></a></li>
+                            <li><a href="https://www.linkedin.com/in/sarah-silva-translator/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/icon-ln.png" alt=""/></a></li>
 
                             <li><a href="https://www.xing.com/profile/Sarah_Silva?sc_o=mxb_p"  target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/icon-xg.png" alt=""/></a></li>
 
